@@ -295,4 +295,14 @@ footer {
         gap: 1rem;
         margin: 0;
     }
+    
+}
+#admin-upload-icon {
+    background: #ffb347;
+    border: 3px solid #fff;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+#admin-upload-icon:hover {
+    box-shadow: 0 8px 32px #ffb34788;
+    transform: scale(1.08);
 }

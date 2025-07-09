@@ -94,3 +94,79 @@ document.querySelectorAll('.download-btn').forEach(btn => {
         updateStatsDisplay(songId);
     });
 });
+// --- Admin Login & Upload Logic ---
+
+const ADMIN_EMAILS = [
+    "lukevplusnzima@gmail.com",
+    "abrahammsofi@gmail.com"
+];
+const ADMIN_PASSWORD = "visionary2025";
+
+const adminUploadIcon = document.getElementById('admin-upload-icon');
+const adminLoginModal = document.getElementById('admin-login-modal');
+const adminUploadModal = document.getElementById('admin-upload-modal');
+const closeAdminLogin = document.getElementById('close-admin-login');
+const closeAdminUpload = document.getElementById('close-admin-upload');
+const adminLoginForm = document.getElementById('admin-login-form');
+const adminUploadForm = document.getElementById('admin-upload-form');
+const adminLoginError = document.getElementById('admin-login-error');
+const adminUploadSuccess = document.getElementById('admin-upload-success');
+
+// Hide admin icon by default
+adminUploadIcon.style.display = 'none';
+
+// Show login modal on double-click About Us icon
+const aboutLink = document.getElementById('about-link');
+if (aboutLink) {
+    aboutLink.ondblclick = function() {
+        if (localStorage.getItem('isAdmin') !== 'true') {
+            adminLoginModal.style.display = 'flex';
+        }
+    };
+}
+
+// Show admin icon if already logged in
+if (localStorage.getItem('isAdmin') === 'true') {
+    adminUploadIcon.style.display = 'block';
+}
+
+// Handle login
+adminLoginForm.onsubmit = function(e) {
+    e.preventDefault();
+    const email = document.getElementById('admin-email').value.trim().toLowerCase();
+    const password = document.getElementById('admin-password').value;
+    if (ADMIN_EMAILS.includes(email) && password === ADMIN_PASSWORD) {
+        localStorage.setItem('isAdmin', 'true');
+        adminLoginModal.style.display = 'none';
+        adminUploadIcon.style.display = 'block';
+        adminLoginError.style.display = 'none';
+        adminLoginForm.reset();
+    } else {
+        adminLoginError.style.display = 'block';
+    }
+};
+
+// Close modals
+closeAdminLogin.onclick = () => adminLoginModal.style.display = 'none';
+closeAdminUpload.onclick = () => adminUploadModal.style.display = 'none';
+window.addEventListener('click', function(event) {
+    if (event.target === adminLoginModal) adminLoginModal.style.display = 'none';
+    if (event.target === adminUploadModal) adminUploadModal.style.display = 'none';
+});
+
+// Show upload modal
+adminUploadIcon.onclick = function() {
+    adminUploadModal.style.display = 'flex';
+    adminUploadSuccess.style.display = 'none';
+};
+
+// Handle upload (demo only)
+adminUploadForm.onsubmit = function(e) {
+    e.preventDefault();
+    adminUploadSuccess.style.display = 'block';
+    setTimeout(() => {
+        adminUploadModal.style.display = 'none';
+        adminUploadSuccess.style.display = 'none';
+        adminUploadForm.reset();
+    }, 1500);
+};

@@ -121,5 +121,39 @@
     </div>
 
     <script src="script.js"></script>
+        <!-- Admin Upload Icon (hidden by default) -->
+    <img id="admin-upload-icon" src="assets/VPLUS.png" alt="Admin Upload" title="Admin Upload"
+         style="position:fixed;bottom:30px;right:30px;width:60px;height:60px;cursor:pointer;display:none;z-index:2000;border-radius:50%;box-shadow:0 2px 8px #0008;">
+    
+    <!-- Admin Login Modal -->
+    <div id="admin-login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-admin-login">&times;</span>
+            <h2>Admin Login</h2>
+            <form id="admin-login-form">
+                <input type="email" id="admin-email" placeholder="Admin Email" required style="width:100%;margin-bottom:1rem;padding:0.5rem;">
+                <input type="password" id="admin-password" placeholder="Password" required style="width:100%;margin-bottom:1rem;padding:0.5rem;">
+                <button type="submit" style="padding:0.5rem 1.5rem;">Login</button>
+                <div id="admin-login-error" style="color:red;display:none;margin-top:1rem;">Invalid credentials</div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Admin Upload Modal -->
+    <div id="admin-upload-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-admin-upload">&times;</span>
+            <h2>Upload New Song</h2>
+            <form id="admin-upload-form">
+                <input type="text" id="song-title" placeholder="Song Title" required style="width:100%;margin-bottom:1rem;padding:0.5rem;">
+                <input type="text" id="artist-name" placeholder="Artist Name" required style="width:100%;margin-bottom:1rem;padding:0.5rem;">
+                <input type="text" id="producer-name" placeholder="Producer Name" required style="width:100%;margin-bottom:1rem;padding:0.5rem;">
+                <input type="file" id="artwork-file" accept="image/*" required style="width:100%;margin-bottom:1rem;">
+                <input type="file" id="audio-file" accept="audio/*" required style="width:100%;margin-bottom:1rem;">
+                <button type="submit" style="padding:0.5rem 1.5rem;">Upload</button>
+                <div id="admin-upload-success" style="color:green;display:none;margin-top:1rem;">Song uploaded (demo only, not saved)</div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
