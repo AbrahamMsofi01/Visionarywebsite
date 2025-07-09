@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: linear-gradient(135deg, #1e1e2f 0%, #3a3a5d 100%);
+    color: #fff;
+    min-height: 100vh;
+}
+
+header {
+    position: relative;
+    background: rgba(30, 30, 47, 0.95);
+    padding-bottom: 1rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+.logo-bg {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    opacity: 0.15;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    padding: 2rem 2rem 0 2rem;
+}
+
+.vplus-icon {
+    width: 60px;
+    height: 60px;
+    margin-right: 1rem;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 8px #0005;
+    background: #fff;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #ffb347;
+    text-shadow: 0 2px 8px #0008;
+    margin: 0;
+}
+
+nav {
+    margin-top: 1rem;
+    z-index: 2;
+    position: relative;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    margin: 0 2rem 0 0;
+    padding: 0;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+nav a:hover {
+    background: #ffb347;
+    color: #1e1e2f;
+}
+
+.music-section {
+    padding: 2rem 1rem 3rem 1rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.music-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #ffb347;
+    letter-spacing: 1px;
+}
+
+.music-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.music-card {
+    background: rgba(255,255,255,0.07);
+    border-radius: 18px;
+    box-shadow: 0 2px 16px #0004;
+    overflow: hidden;
+    width: 320px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+
+.music-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 32px #0006;
+}
+
+.music-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #ffb347;
+}
+
+.music-info {
+    padding: 1.2rem;
+}
+
+.music-info h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.3rem;
+    color: #ffb347;
+}
+
+.music-info p {
+    margin: 0.2rem 0;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.music-info span {
+    color: #ffb347;
+    font-weight: 600;
+}
+
+.music-actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.play-btn, .download-btn {
+    background: #ffb347;
+    color: #1e1e2f;
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    text-decoration: none;
+    outline: none;
+}
+
+.play-btn:hover, .download-btn:hover {
+    background: #fff;
+    color: #ffb347;
+}
+
+.music-stats {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1.2rem;
+    font-size: 0.95rem;
+    color: #ccc;
+}
+
+.music-stats span {
+    color: #ffb347;
+    font-weight: 600;
+}
+
+#audio-player {
+    width: 100%;
+    margin-top: 2rem;
+    display: block;
+    background: #222;
+    border-radius: 10px;
+}
+
+footer {
+    background: #1e1e2f;
+    padding: 2rem 1rem 1rem 1rem;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-links {
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: #ffb347;
+    margin: 0 1.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(30,30,47,0.88);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    color: #1e1e2f;
+    padding: 2rem 2.5rem;
+    border-radius: 18px;
+    box-shadow: 0 4px 32px #0008;
+    max-width: 400px;
+    width: 90vw;
+    position: relative;
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    font-size: 1.5rem;
+    color: #ffb347;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.whatsapp-btn, .email-btn {
+    display: block;
+    margin: 1.5rem auto 0.5rem auto;
+    background: #25d366;
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: background 0.2s;
+}
+
+.email-btn {
+    background: #4285f4;
+    margin-top: 0.5rem;
+}
+
+.whatsapp-btn:hover {
+    background: #128c7e;
+}
+
+.email-btn:hover {
+    background: #1a73e8;
+}
+
+@media (max-width: 900px) {
+    .music-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    .music-card {
+        width: 90vw;
+    }
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    nav ul {
+        justify-content: center;
+        gap: 1rem;
+        margin: 0;
+    }
+}
